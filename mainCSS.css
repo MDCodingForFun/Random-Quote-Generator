@@ -1,0 +1,113 @@
+@import
+  url("https://fonts.googleapis.com/css?family=Lato|Playfair+Display");
+
+:root{
+  --primary:#c99e10;
+  --light:white; 
+  --dark: #1E434C;
+}
+*{
+  margin:0;
+  padding:0;
+}
+.main_container{
+  background:-moz-linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background:-webkit-linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "grid";
+}
+.grid{
+  grid-area:grid;
+  display:grid;
+  margin:10%;
+  grid-template-columns: 1fr 25% 25% 1fr  ;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+  ". content content ."
+  ". content content ."
+  ". footer footer .";
+}
+
+.content{
+  grid-area: content;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:1fr auto;
+  grid-template-areas:
+  "quoteBox quoteBox"
+  "buttons buttons";
+  border-radius: 2%;
+  background:var(--dark);
+  color: var(--light);
+  padding:5%;
+}
+.quoteBox{
+  grid-area: quoteBox;
+}
+#quoteContainer{
+  font-family: 'Playfair Display', serif;
+  font-size:2em;
+}
+#authorContainer{
+  text-align:right;
+  font-family: 'Lato', sans-serif;
+  font-size:1.1em;
+}
+.buttons{
+  grid-area: buttons;
+  margin: auto;
+  font-family: 'Lato', sans-serif;
+}
+.btn {
+  background-color:var(--primary);
+  color: var(--light);
+  font-weight: 500;
+  font-size:1em;
+  margin:.5em;
+  border:none;
+}
+.btn:hover, .btn:focus{
+  background-color:var(--primary);
+  color: var(--dark);
+  font-weight: 500;
+  font-size:1em;
+  outline:none;
+}
+.footer{
+  grid-area:footer;
+}
+.footer p{
+   color:var(--dark);
+}
+.footer a:visited,
+.footer a:hover,
+.footer a:active {
+  color: var(--primary);
+}
+@media(max-width:767px){
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr 40% 40% 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    ". content content ."
+    ". content content ."
+    ". footer footer .";
+  }
+}
+
+@media(max-width:400px){
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr auto auto 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    ". content content ."
+    ". content content ."
+    ". footer footer .";
+  }
+}
